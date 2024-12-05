@@ -1,5 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/account_screen.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/cart_screen.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/category_screen.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/home_screen.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/search_screen.dart';
+import 'package:flutter_application_1/views/buyers/nav_screens/store_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,6 +17,17 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _pageIndex = 0;
+
+
+  List<Widget> _pages = [
+    HomeScreen(),
+    CategoryScreen(),
+    StoreScreen(),
+    CartScreen(),
+    SearchScreen(),
+    AccountScreen()
+
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +83,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      body: _pages[_pageIndex],
     );
   }
 }
